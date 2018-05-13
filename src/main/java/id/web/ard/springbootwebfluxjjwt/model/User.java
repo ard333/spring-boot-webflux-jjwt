@@ -2,7 +2,7 @@
  * Ardiansyah | http://ard.web.id
  * 
  */
-package id.web.ard.springbootwebfluxjjwt.entity;
+package id.web.ard.springbootwebfluxjjwt.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

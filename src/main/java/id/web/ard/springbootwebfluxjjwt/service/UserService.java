@@ -4,7 +4,7 @@
  */
 package id.web.ard.springbootwebfluxjjwt.service;
 
-import id.web.ard.springbootwebfluxjjwt.entity.User;
+import id.web.ard.springbootwebfluxjjwt.model.User;
 import id.web.ard.springbootwebfluxjjwt.security.model.Role;
 import java.util.Arrays;
 import org.springframework.security.core.userdetails.UserDetails;

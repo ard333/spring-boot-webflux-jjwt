@@ -2,7 +2,7 @@
  * Ardiansyah | http://ard.web.id
  * 
  */
-package id.web.ard.springbootwebfluxjjwt.entity;
+package id.web.ard.springbootwebfluxjjwt.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

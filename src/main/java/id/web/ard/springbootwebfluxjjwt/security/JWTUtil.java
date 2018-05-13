@@ -4,7 +4,7 @@
  */
 package id.web.ard.springbootwebfluxjjwt.security;
 
-import id.web.ard.springbootwebfluxjjwt.entity.User;
+import id.web.ard.springbootwebfluxjjwt.model.User;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
