@@ -2,9 +2,9 @@
  * Ardiansyah | http://ard.web.id
  * 
  */
-package id.web.ard.springbootwebfluxjjwt.rest;
+package com.ard333.springbootwebfluxjjwt.rest;
 
-import id.web.ard.springbootwebfluxjjwt.model.Message;
+import com.ard333.springbootwebfluxjjwt.model.Message;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;

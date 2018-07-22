@@ -1,18 +1,13 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.rest;
+package com.ard333.springbootwebfluxjjwt.rest;
 
-import id.web.ard.springbootwebfluxjjwt.security.JWTUtil;
-import id.web.ard.springbootwebfluxjjwt.security.PBKDF2Encoder;
-import id.web.ard.springbootwebfluxjjwt.security.model.AuthRequest;
-import id.web.ard.springbootwebfluxjjwt.security.model.AuthResponse;
-import id.web.ard.springbootwebfluxjjwt.service.UserService;
+import com.ard333.springbootwebfluxjjwt.security.JWTUtil;
+import com.ard333.springbootwebfluxjjwt.security.PBKDF2Encoder;
+import com.ard333.springbootwebfluxjjwt.security.model.AuthRequest;
+import com.ard333.springbootwebfluxjjwt.security.model.AuthResponse;
+import com.ard333.springbootwebfluxjjwt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,13 +16,13 @@ import reactor.core.publisher.Mono;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @RestController
 public class AuthenticationREST {
 
 	@Autowired
-	private JWTUtil jwtTokenUtil;
+	private JWTUtil jwtUtil;
 	
 	@Autowired
 	private PBKDF2Encoder passwordEncoder;
@@ -39,7 +34,7 @@ public class AuthenticationREST {
 	public Mono<ResponseEntity<AuthResponse>> auth(@RequestBody AuthRequest ar) {
 		return userRepository.findByUsername(ar.getUsername()).map((userDetails) -> {
 			if (passwordEncoder.encode(ar.getPassword()).equals(userDetails.getPassword())) {
-				return ResponseEntity.ok(new AuthResponse(jwtTokenUtil.generateToken(userDetails)));
+				return ResponseEntity.ok(new AuthResponse(jwtUtil.generateToken(userDetails)));
 			} else {
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 			}

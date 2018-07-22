@@ -1,10 +1,6 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.security;
+package com.ard333.springbootwebfluxjjwt.security;
 
-import id.web.ard.springbootwebfluxjjwt.security.model.Role;
+import com.ard333.springbootwebfluxjjwt.security.model.Role;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -16,11 +12,10 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.security.web.server.context.ServerSecurityContextRepository;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Component
 public class AuthenticationManager implements ReactiveAuthenticationManager {
@@ -32,29 +27,25 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
 	public Mono<Authentication> authenticate(Authentication authentication) {
 		String authToken = authentication.getCredentials().toString();
 		
-		String username = null;
+		String username;
 		try {
 			username = jwtUtil.getUsernameFromToken(authToken);
 		} catch (Exception e) {
 			username = null;
 		}
-		if (username != null) {
+		if (username != null && jwtUtil.validateToken(authToken)) {
 			Claims claims = jwtUtil.getAllClaimsFromToken(authToken);
-			if (jwtUtil.validateToken(authToken)) {
-				List<String> rolesMap = claims.get("role", List.class);
-				List<Role> roles = new ArrayList<>();
-				for (String rolemap : rolesMap) {
-					roles.add(Role.valueOf(rolemap));
-				}
-				UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
-					username,
-					null,
-					roles.stream().map(authority -> new SimpleGrantedAuthority(authority.name())).collect(Collectors.toList())
-				);
-				return Mono.just(auth);
-			} else {
-				return Mono.empty();
+			List<String> rolesMap = claims.get("role", List.class);
+			List<Role> roles = new ArrayList<>();
+			for (String rolemap : rolesMap) {
+				roles.add(Role.valueOf(rolemap));
 			}
+			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
+				username,
+				null,
+				roles.stream().map(authority -> new SimpleGrantedAuthority(authority.name())).collect(Collectors.toList())
+			);
+			return Mono.just(auth);
 		} else {
 			return Mono.empty();
 		}

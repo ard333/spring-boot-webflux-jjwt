@@ -1,8 +1,4 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.security;
+package com.ard333.springbootwebfluxjjwt.security;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -15,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Component
 public class PBKDF2Encoder implements PasswordEncoder{

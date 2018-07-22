@@ -1,8 +1,4 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.model;
+package com.ard333.springbootwebfluxjjwt.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +7,7 @@ import lombok.ToString;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class Message {

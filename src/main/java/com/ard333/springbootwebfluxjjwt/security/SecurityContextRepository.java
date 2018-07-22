@@ -1,8 +1,4 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.security;
+package com.ard333.springbootwebfluxjjwt.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Component
 public class SecurityContextRepository implements ServerSecurityContextRepository{

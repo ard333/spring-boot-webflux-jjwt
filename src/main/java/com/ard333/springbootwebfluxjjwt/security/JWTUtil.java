@@ -1,10 +1,6 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.security;
+package com.ard333.springbootwebfluxjjwt.security;
 
-import id.web.ard.springbootwebfluxjjwt.model.User;
+import com.ard333.springbootwebfluxjjwt.model.User;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Component
 public class JWTUtil implements Serializable {

@@ -1,11 +1,7 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
-package id.web.ard.springbootwebfluxjjwt.service;
+package com.ard333.springbootwebfluxjjwt.service;
 
-import id.web.ard.springbootwebfluxjjwt.model.User;
-import id.web.ard.springbootwebfluxjjwt.security.model.Role;
+import com.ard333.springbootwebfluxjjwt.model.User;
+import com.ard333.springbootwebfluxjjwt.security.model.Role;
 import java.util.Arrays;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -13,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @Service
 public class UserService {
@@ -48,7 +44,5 @@ public class UserService {
 			return Mono.empty();
 		}
 	}
-	
-	
 	
 }

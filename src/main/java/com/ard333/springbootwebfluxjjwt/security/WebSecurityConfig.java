@@ -1,4 +1,4 @@
-package id.web.ard.springbootwebfluxjjwt.security;
+package com.ard333.springbootwebfluxjjwt.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 
 /**
  *
- * @author ardiansyah
+ * @author ard333
  */
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity
