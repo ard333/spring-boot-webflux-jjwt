@@ -24,17 +24,6 @@ public class UserService {
 	private final String adminUsername = "admin";// password: admin
 	private final User admin = new User(adminUsername, "dQNjUIMorJb8Ubj2+wVGYp6eAeYkdekqAcnYp+aRq5w=", true, Arrays.asList(Role.ROLE_ADMIN));
 	
-	
-	public Mono<UserDetails> findUserDetailsByUsername(String username) {
-		if (username.equals(userUsername)) {
-			return Mono.just(user);
-		} else if (username.equals(adminUsername)) {
-			return Mono.just(admin);
-		} else {
-			return Mono.empty();
-		}
-	}
-	
 	public Mono<User> findByUsername(String username) {
 		if (username.equals(userUsername)) {
 			return Mono.just(user);
