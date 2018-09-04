@@ -3,7 +3,6 @@ package com.ard333.springbootwebfluxjjwt.service;
 import com.ard333.springbootwebfluxjjwt.model.User;
 import com.ard333.springbootwebfluxjjwt.security.model.Role;
 import java.util.Arrays;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
