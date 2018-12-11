@@ -30,15 +30,15 @@ public class AuthenticationREST {
 	@Autowired
 	private UserService userRepository;
 
-	@RequestMapping(value = "auth", method = RequestMethod.POST)
-	public Mono<ResponseEntity<AuthResponse>> auth(@RequestBody AuthRequest ar) {
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public Mono<ResponseEntity<?>> auth(@RequestBody AuthRequest ar) {
 		return userRepository.findByUsername(ar.getUsername()).map((userDetails) -> {
 			if (passwordEncoder.encode(ar.getPassword()).equals(userDetails.getPassword())) {
 				return ResponseEntity.ok(new AuthResponse(jwtUtil.generateToken(userDetails)));
 			} else {
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 			}
-		});
+		}).defaultIfEmpty(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
 }
