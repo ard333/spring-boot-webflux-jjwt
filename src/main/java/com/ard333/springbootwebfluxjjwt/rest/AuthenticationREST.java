@@ -30,7 +30,7 @@ public class AuthenticationREST {
 	@Autowired
 	private UserService userRepository;
 
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public Mono<ResponseEntity<?>> login(@RequestBody AuthRequest ar) {
 		return userRepository.findByUsername(ar.getUsername()).map((userDetails) -> {
 			if (passwordEncoder.encode(ar.getPassword()).equals(userDetails.getPassword())) {

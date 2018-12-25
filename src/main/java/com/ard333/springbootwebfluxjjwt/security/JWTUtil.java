@@ -2,6 +2,7 @@ package com.ard333.springbootwebfluxjjwt.security;
 
 import com.ard333.springbootwebfluxjjwt.model.User;
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class JWTUtil implements Serializable {
 	private String expirationTime;
 	
 	public Claims getAllClaimsFromToken(String token) {
-		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+		return Jwts.parser().setSigningKey(Base64.getEncoder().encodeToString(secret.getBytes())).parseClaimsJws(token).getBody();
 	}
 	
 	public String getUsernameFromToken(String token) {
@@ -46,7 +47,6 @@ public class JWTUtil implements Serializable {
 	public String generateToken(User user) {
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("role", user.getRoles());
-		claims.put("enable", user.getEnabled());
 		return doGenerateToken(claims, user.getUsername());
 	}
 
@@ -60,7 +60,7 @@ public class JWTUtil implements Serializable {
 				.setSubject(username)
 				.setIssuedAt(createdDate)
 				.setExpiration(expirationDate)
-				.signWith(SignatureAlgorithm.HS512, secret)
+				.signWith(SignatureAlgorithm.HS512, Base64.getEncoder().encodeToString(secret.getBytes()))
 				.compact();
 	}
 	
