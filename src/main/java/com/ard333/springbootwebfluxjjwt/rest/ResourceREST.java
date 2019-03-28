@@ -1,7 +1,3 @@
-/*
- * Ardiansyah | http://ard.web.id
- * 
- */
 package com.ard333.springbootwebfluxjjwt.rest;
 
 import com.ard333.springbootwebfluxjjwt.model.Message;

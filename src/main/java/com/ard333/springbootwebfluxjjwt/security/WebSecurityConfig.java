@@ -48,6 +48,5 @@ public class WebSecurityConfig {
 				.pathMatchers("/login").permitAll()
 				.anyExchange().authenticated()
 				.and().build();
-		
 	}
 }

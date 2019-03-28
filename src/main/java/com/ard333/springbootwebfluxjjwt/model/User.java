@@ -22,6 +22,8 @@ import lombok.ToString;
 @ToString @AllArgsConstructor @NoArgsConstructor
 public class User implements UserDetails {
 	
+	private static final long serialVersionUID = 1L;
+
 	private String username;
 	
 	private String password;
