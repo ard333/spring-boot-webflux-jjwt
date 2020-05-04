@@ -26,7 +26,7 @@ public class PBKDF2Encoder implements PasswordEncoder{
 	private Integer keylength;
 	
 	/**
-	 * More info (https://www.owasp.org/index.php/Hashing_Java)
+	 * More info (https://www.owasp.org/index.php/Hashing_Java) 404 :(
 	 * @param cs password
 	 * @return encoded password
 	 */

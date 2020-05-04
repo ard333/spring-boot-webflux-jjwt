@@ -28,11 +28,11 @@ public class AuthenticationREST {
 	private PBKDF2Encoder passwordEncoder;
 
 	@Autowired
-	private UserService userRepository;
+	private UserService userService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public Mono<ResponseEntity<?>> login(@RequestBody AuthRequest ar) {
-		return userRepository.findByUsername(ar.getUsername()).map((userDetails) -> {
+		return userService.findByUsername(ar.getUsername()).map((userDetails) -> {
 			if (passwordEncoder.encode(ar.getPassword()).equals(userDetails.getPassword())) {
 				return ResponseEntity.ok(new AuthResponse(jwtUtil.generateToken(userDetails)));
 			} else {
