@@ -11,9 +11,7 @@ import lombok.ToString;
  */
 @Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class  AuthRequest {
-	
-	private String username;
-	
-	private String password;
+    private String username;
+    private String password;
 
 }
