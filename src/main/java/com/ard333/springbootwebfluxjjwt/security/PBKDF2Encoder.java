@@ -9,12 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author ard333
- */
 @Component
-public class PBKDF2Encoder implements PasswordEncoder{
+public class PBKDF2Encoder implements PasswordEncoder {
+
     @Value("${springbootwebfluxjjwt.password.encoder.secret}")
     private String secret;
 
@@ -23,6 +20,7 @@ public class PBKDF2Encoder implements PasswordEncoder{
 
     @Value("${springbootwebfluxjjwt.password.encoder.keylength}")
     private Integer keylength;
+
     /**
      * More info (https://www.owasp.org/index.php/Hashing_Java) 404 :(
      * @param cs password
