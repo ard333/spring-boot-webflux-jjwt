@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "springbootwebfluxjjwt.password.encoder.secret",
+      "type": "java.lang.String",
+      "description": "Encoder secret"
+    },
+    {
+      "name": "springbootwebfluxjjwt.password.encoder.iteration",
+      "type": "java.lang.Integer",
+      "description": "Iteration numbers for generating the key"
+    },
+    {
+      "name": "springbootwebfluxjjwt.password.encoder.keylength",
+      "type": "java.lang.Integer",
+      "description": "The key length'"
+    },
+    {
+      "name": "springbootwebfluxjjwt.jjwt.secret",
+      "type": "java.lang.String",
+      "description": "This is secret for JWTHS512 signature algorithm that MUST have 64 byte length"
+    },
+    {
+      "name": "springbootwebfluxjjwt.jjwt.expiration",
+      "type": "java.lang.String",
+      "description": "Expiration time for token in seconds"
+    }
+  ]
+}
